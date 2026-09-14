@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi pagina web</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        .carrucel{
+            position: relative;
+            overflow: hidden;
+        }
+        .carrucel-imagenes img{ 
+            width: 100%;
+            display: none;
+            border-radius: 10px;
+        }
+        .carrucel-imagenes img.activo{
+            display: block;
+        }
+        #qrcode{
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 2);
+            max-width: 150px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand.lg navbar-dark bg-dark shadow">
+        <div class="conteiner">
+
+            <a class="navbar-brand fw-bold" href="#">Sistema web</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="">
+            <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu" >
+                <ul class="navbar-nav ms-auto" >
+
+                    <li class="nav-item"><a class="nav-link" href="">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Inicio</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="conteiner text-center mt-5" >
+         
+        <h1 class="display-4 fw-blod" >Bienvenido al Sistema</h1>
+        <p class="lead" >Ejemplo completo con HTML, CSS, JavaScript y bootstrap</p>
+        
+    </div>
+
+    <div class="container mt-5" >
+
+        <divc class="row" >
+
+            <div class="col-md-4" > 
+
+                <div class="card shadow-lg p-3" >
+
+                    <h4>Lenguajes Web</h4>
+
+                    <ul>
+
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-8" >
+
+                <div class="card shadow-lg p-3" >
+
+                    <h3>Galerias</h3>
+
+                    <div class="carrusel" >
+
+                        <div class="carrusel-imagenes" >
+
+                            <img src="IMG/xd1.jpg" class="slide activo">
+                            <img src="IMG/xd2.jpg" class="slide">
+                            <img src="IMG/xd3.jpg" class="slide">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container mt-5 text-center">
+
+        <div class="card shadow-lg p-4">
+
+            <h4 class="mb-3">Escanea para visitar este proyecto en GitHub</h4>
+
+                <div id="qrcode"></div>
+
+                    <p class="text-muted small">Apunta la cámara de tu celular al código</p>
+
+                </div>
+
+        </div>
+
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+
+        <p>2026 - Proyecto Web</p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+        function mostrarSlide() {
+    slides.forEach(slide => slide.classList.remove("activo"));
+    slides[index].classList.add("activo");
+    index++;
+    if(index >= slides.length) index = 0;
+    }
+    setInterval(mostrarSlide, 3000);
+    </script>
+
+    <script>
+    new QRCode(document.getElementById("qrcode"), {
+    text: " https://senavisitas-blip.github.io/proyecto11/",
+    width: 150,
+    height: 150,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+    });
+    </script>
+
+    
+</body>
+</html>
